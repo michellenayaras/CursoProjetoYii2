@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\AnimalSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Animals';
+$this->title = 'Animal';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="animal-index">
@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Animal', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Cadastrar novo Animal', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -24,15 +24,22 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+            //['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'nome',
+            //'id',
+            [
+                'attribute'=>'nome',
+                'filterInputOptions' => [
+                    'class'       => 'form-control',
+                    'placeholder' => 'Digite um nome'
+                ], 
+            ],
+
             'sexo',
             'cor',
             'raca',
-            //'porte',
-            //'idade',
+            'porte',
+            'idade',
             //'foto',
             //'usuario_id',
             //'endereco_id',

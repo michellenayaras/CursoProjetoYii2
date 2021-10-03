@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\EnderecoSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Enderecos';
+$this->title = 'Endereços';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="endereco-index">
@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Endereco', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('cadastrar Endereço', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -24,15 +24,22 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+            // ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'rua',
+            //'id',
+            
+            [
+                'attribute'=>'rua',
+                'filterInputOptions' => [
+                    'class'       => 'form-control',
+                    'placeholder' => 'Digite a rua'
+                ], 
+            ],
             'cidade',
             'bairro',
             'estado',
             //'numero',
-            //'cep',
+            'cep',
             //'pontoRefencia',
 
             ['class' => 'yii\grid\ActionColumn'],

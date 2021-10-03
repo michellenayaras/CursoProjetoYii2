@@ -18,14 +18,14 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'telefone')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'email')->textInput(['type' => 'email']) ?>
 
-    <?= $form->field($model, 'dataNascimento')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'dataNascimento')->textInput(['type' => 'date']) ?>
 
     <?= $form->field($model, 'foto')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Salvar', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

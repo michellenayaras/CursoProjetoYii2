@@ -32,8 +32,13 @@ class Usuario extends \yii\db\ActiveRecord
      */
     public function rules()
     {
-        return [
-            [['nome', 'senha', 'telefone', 'email', 'dataNascimento', 'foto'], 'string', 'max' => 255],
+        return [ 
+            [['nome'], 'required', 'message'=>'Por favor informe seu nome'],
+            [['senha'],  'required', 'message'=>'Por favor preencha a senha'],
+            [['telefone'],  'required', 'message'=>'Por favor informe seu telefone'], 
+            [['email'],  'required', 'message'=>'Por favor informe seu email'],
+            [['dataNascimento'], 'required',  'message'=>'Por favor informe a data de nascimento'],
+            [['foto'], 'string', 'max' => 255],
         ];
     }
 
@@ -47,7 +52,7 @@ class Usuario extends \yii\db\ActiveRecord
             'nome' => 'Nome',
             'senha' => 'Senha',
             'telefone' => 'Telefone',
-            'email' => 'Email',
+            'email' => 'E-mail',
             'dataNascimento' => 'Data Nascimento',
             'foto' => 'Foto',
         ];

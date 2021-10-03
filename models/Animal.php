@@ -38,7 +38,13 @@ class Animal extends \yii\db\ActiveRecord
     {
         return [
             [['usuario_id', 'endereco_id'], 'integer'],
-            [['nome', 'sexo', 'cor', 'raca', 'porte', 'idade', 'foto'], 'string', 'max' => 255],
+            [['nome'],'string', 'max' => 255],
+            [['sexo'],  'required', 'message'=>'Por favor preencha o campo sexo'],
+            [['cor'],  'required', 'message'=>'Por favor informe seu telefone'], 
+            [['raca'],  'required', 'message'=>'Por favor informe a raça'],
+            [['porte'], 'required',  'message'=>'Por favor informeo o porte'],
+            [['idade'], 'required',  'message'=>'Por favor informeo a idade'],
+            [['foto'], 'string', 'max' => 255],
             [['endereco_id'], 'exist', 'skipOnError' => true, 'targetClass' => Endereco::className(), 'targetAttribute' => ['endereco_id' => 'id']],
             [['usuario_id'], 'exist', 'skipOnError' => true, 'targetClass' => Usuario::className(), 'targetAttribute' => ['usuario_id' => 'id']],
         ];
@@ -54,7 +60,7 @@ class Animal extends \yii\db\ActiveRecord
             'nome' => 'Nome',
             'sexo' => 'Sexo',
             'cor' => 'Cor',
-            'raca' => 'Raca',
+            'raca' => 'Raça',
             'porte' => 'Porte',
             'idade' => 'Idade',
             'foto' => 'Foto',

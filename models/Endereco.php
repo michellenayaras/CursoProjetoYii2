@@ -34,7 +34,13 @@ class Endereco extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['rua', 'cidade', 'bairro', 'estado', 'numero', 'cep', 'pontoRefencia'], 'string', 'max' => 255],
+            [['rua'], 'required', 'message'=>'Por favor informe o nome da rua '],
+            [['cidade'],  'required', 'message'=>'Por favor preencha a cidade'],
+            [['estado'],  'required', 'message'=>'Por favor informe seu estado'], 
+            [['numero'],  'required', 'message'=>'Por favor informe o número'],
+            [['cep'], 'required',  'message'=>'Por favor informe seu cep'],
+            [['pontoRefencia'], 'string', 'max' => 255],
+          
         ];
     }
 
@@ -51,7 +57,7 @@ class Endereco extends \yii\db\ActiveRecord
             'estado' => 'Estado',
             'numero' => 'Numero',
             'cep' => 'Cep',
-            'pontoRefencia' => 'Ponto Refencia',
+            'pontoRefencia' => 'Ponto Refência',
         ];
     }
 
