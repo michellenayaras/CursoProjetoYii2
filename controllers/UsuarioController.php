@@ -52,7 +52,7 @@ class UsuarioController extends Controller
                             Yii::$app->user->loginRequired();
                         }
                         else {
-                            throw new ForbiddenHttpException('Voce não tem acesso a essas funcionalidades.');
+                            throw new ForbiddenHttpException('Você não tem acesso a essas funcionalidades.');
                         }                   
                     }
       
