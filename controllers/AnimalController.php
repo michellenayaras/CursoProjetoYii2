@@ -9,7 +9,8 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\web\ForbiddenHttpException;
-
+use yii\web\UploadedFile;
+use Yii;
 /**
  * AnimalController implements the CRUD actions for Animal model.
  */
@@ -41,7 +42,7 @@ class AnimalController extends Controller
                         ],
                         [
                             'allow' => true,
-                            'actions' => ['create','delete'],
+                            'actions' => ['view','create','delete','update'],
                             'roles' => ['@'],
                         ],
                     ],
@@ -68,6 +69,13 @@ class AnimalController extends Controller
     {
         $searchModel = new AnimalSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
+        $model = new Animal;
+
+       // $model->imageFile =  UploadedFile::getInstance($model, 'imageFile');
+       // $model->foto =  $model->imageFile;
+       // $model->save(); 
+       // $uploadPath = Yii::getAlias('@webroot/files');
+       // $model->imageFile->saveAs($uploadPath . '/' . $model->imageFile); 
 
         return $this->render('index', [
             'searchModel' => $searchModel,

@@ -22,6 +22,10 @@ class Usuario extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 
 {
     /**
+     * @var UploadedFile
+     */
+    public $imageFile;
+    /**
      * {@inheritdoc}
      */
     public static function tableName()
@@ -41,6 +45,7 @@ class Usuario extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
             [['email'],  'required', 'message'=>'Por favor informe seu email'],
             [['dataNascimento'], 'required',  'message'=>'Por favor informe a data de nascimento'],
             [['foto'], 'string', 'max' => 255],
+            ['imageFile', 'file', 'extensions' => 'jpg, png'],
         ];
     }
 
@@ -57,6 +62,7 @@ class Usuario extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
             'email' => 'E-mail',
             'dataNascimento' => 'Data Nascimento',
             'foto' => 'Foto',
+            'imageFile' => 'Foto',
         ];
     }
 

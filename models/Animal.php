@@ -23,6 +23,10 @@ use Yii;
  */
 class Animal extends \yii\db\ActiveRecord
 {
+     /**
+     * @var UploadedFile
+     */
+    public $imageFile;
     /**
      * {@inheritdoc}
      */
@@ -45,6 +49,7 @@ class Animal extends \yii\db\ActiveRecord
             [['porte'], 'required',  'message'=>'Por favor informeo o porte'],
             [['idade'], 'required',  'message'=>'Por favor informeo a idade'],
             [['foto'], 'string', 'max' => 255],
+            ['imageFile', 'file', 'extensions' => 'jpg, png'],
             [['endereco_id'], 'exist', 'skipOnError' => true, 'targetClass' => Endereco::className(), 'targetAttribute' => ['endereco_id' => 'id']],
             [['usuario_id'], 'exist', 'skipOnError' => true, 'targetClass' => Usuario::className(), 'targetAttribute' => ['usuario_id' => 'id']],
         ];
@@ -64,6 +69,7 @@ class Animal extends \yii\db\ActiveRecord
             'porte' => 'Porte',
             'idade' => 'Idade',
             'foto' => 'Foto',
+            'imageFile' => 'Foto do Animal',
             'usuario_id' => 'Usuario ID',
             'endereco_id' => 'Endereco ID',
         ];

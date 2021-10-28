@@ -23,12 +23,10 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'porte')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'idade')->textInput(['maxlength' => true]) ?>
+    
+    <br></br>
 
-    <?= $form->field($model, 'foto')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'usuario_id')->textInput() ?>
-
-    <?= $form->field($model, 'endereco_id')->textInput() ?>
+    <?= $form->field($model, 'imageFile')->fileInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

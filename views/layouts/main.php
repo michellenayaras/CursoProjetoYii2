@@ -9,6 +9,8 @@ use yii\bootstrap4\Breadcrumbs;
 use yii\bootstrap4\Html;
 use yii\bootstrap4\Nav;
 use yii\bootstrap4\NavBar;
+use kartik\icons\Icon;
+
 
 AppAsset::register($this);
 ?>
@@ -19,7 +21,7 @@ AppAsset::register($this);
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <?php $this->registerCsrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
+    <title>Adocão</title>
     <?php $this->head() ?>
 </head>
 <body class="d-flex flex-column h-100">
@@ -27,22 +29,23 @@ AppAsset::register($this);
 
 <header>
     <?php
-    NavBar::begin([
+    
+        NavBar::begin([
         'brandLabel' => Yii::$app->name,
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar navbar-expand-md navbar-dark bg-dark fixed-top',
+            'class' => 'navbar navbar-expand-md navbar-dark  bg-primary fixed-top',
+           
         ],
     ]);
+
     echo Nav::widget([
-        'options' => ['class' => 'navbar-nav'],
+        'options' => ['class' => 'navbar-nav ml-auto'],
         'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'Usuário', 'url' => ['/usuario/index']],
-            ['label' => 'Animal', 'url' => ['/animal/index']],
-            ['label' => 'Endereço', 'url' => ['/endereco/index']], 
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
+            ['label' => 'Home', 'icon' => 'home', 'url' => ['/animal/index']],
+            ['label' => 'Usuário', 'icon' => 'user', 'url' => ['/usuario/index']],
+            ['label' => 'Animal', 'icon' => 'paw', 'url' => ['/animal/index']],
+            ['label' => 'Endereço', 'icon' => 'map-marker', 'url' => ['/endereco/index']], 
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (

@@ -22,7 +22,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'dataNascimento')->textInput(['type' => 'date']) ?>
 
-    <?= $form->field($model, 'foto')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'imageFile')->fileInput() ?>
+
+    <br></br>
 
     <div class="form-group">
         <?= Html::submitButton('Salvar', ['class' => 'btn btn-success']) ?>
